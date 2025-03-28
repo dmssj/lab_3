@@ -34,6 +34,7 @@ class SquareMatrix
     }
 }
 
+
 public SquareMatrix Add(SquareMatrix other)
 {
     SquareMatrix result = new SquareMatrix(_size);
@@ -46,6 +47,7 @@ public SquareMatrix Add(SquareMatrix other)
     }
     return result;
 }
+
 
 public SquareMatrix Multiply(SquareMatrix other)
 {
@@ -64,6 +66,7 @@ public SquareMatrix Multiply(SquareMatrix other)
     return result;
 }
 
+
 public int Determinant()
 {
     if (_size == 1) return _matrix[0][0];
@@ -78,6 +81,7 @@ public int Determinant()
     }
     return result;
 }
+
 
 public SquareMatrix Inverse()
 {
@@ -94,6 +98,7 @@ public SquareMatrix Inverse()
     }
     return result;
 }
+
 
 private SquareMatrix GetSubmatrix(int excludeRow, int excludeColumn)
 {
@@ -114,6 +119,7 @@ private SquareMatrix GetSubmatrix(int excludeRow, int excludeColumn)
     }
     return submatrix;
 }
+
 
 class Program
 {
