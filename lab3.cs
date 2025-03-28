@@ -33,3 +33,33 @@ class SquareMatrix
         }
     }
 }
+
+public SquareMatrix Add(SquareMatrix other)
+{
+    SquareMatrix result = new SquareMatrix(_size);
+    for (int rowIndex = 0; rowIndex < _size; ++rowIndex)
+    {
+        for (int columnIndex = 0; columnIndex < _size; ++columnIndex)
+        {
+            result._matrix[rowIndex][columnIndex] = _matrix[rowIndex][columnIndex] + other._matrix[rowIndex][columnIndex];
+        }
+    }
+    return result;
+}
+
+public SquareMatrix Multiply(SquareMatrix other)
+{
+    SquareMatrix result = new SquareMatrix(_size);
+    for (int rowIndex = 0; rowIndex < _size; ++rowIndex)
+    {
+        for (int columnIndex = 0; columnIndex < _size; ++columnIndex)
+        {
+            result._matrix[rowIndex][columnIndex] = 0;
+            for (int innerIndex = 0; innerIndex < _size; ++innerIndex)
+            {
+                result._matrix[rowIndex][columnIndex] += _matrix[rowIndex][innerIndex] * other._matrix[innerIndex][columnIndex];
+            }
+        }
+    }
+    return result;
+}
