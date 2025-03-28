@@ -114,3 +114,44 @@ private SquareMatrix GetSubmatrix(int excludeRow, int excludeColumn)
     }
     return submatrix;
 }
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Введите размер матрицы: ");
+        int size = int.Parse(Console.ReadLine());
+        Console.WriteLine();
+
+        SquareMatrix matrixA = new SquareMatrix(size);
+        SquareMatrix matrixB = new SquareMatrix(size);
+
+        Console.WriteLine("Матрица A:");
+        matrixA.PrintMatrix();
+        Console.WriteLine();
+
+        Console.WriteLine("Матрица B:");
+        matrixB.PrintMatrix();
+        Console.WriteLine();
+
+        SquareMatrix matrixC = matrixA.Add(matrixB);
+        Console.WriteLine("A + B:");
+        matrixC.PrintMatrix();
+        Console.WriteLine();
+
+        SquareMatrix matrixD = matrixA.Multiply(matrixB);
+        Console.WriteLine("A * B:");
+        matrixD.PrintMatrix();
+        Console.WriteLine();
+
+        Console.WriteLine("Детерминант A: " + matrixA.Determinant());
+        Console.WriteLine("Детерминант B: " + matrixB.Determinant());
+
+        SquareMatrix inversion = matrixA.Inverse();
+        if (inversion.Determinant() != 0)
+        {
+            Console.WriteLine("Обратная матрица A:");
+            inversion.PrintMatrix();
+        }
+    }
+}
